@@ -6,7 +6,8 @@ bar_irad = 8.5;
 bar_orad = 10;
 bar_depth = 30;
 mount_length = 2;
-slits_n = 5;
+expander_slits = 5;
+socket_slits = 2;
 screw_rad = 2;
 
 // bar insert
@@ -23,7 +24,7 @@ difference(){
 		cylinder(r=screw_rad, h=2*ball_rad);	// screw hole
 		cylinder(r=3, h=ball_rad);			// counter sink
 	}
-	slits(slits_n,bar_irad,bar_depth);
+	slits(expander_slits,bar_irad,bar_depth);
 }
 
 // expander plug
@@ -46,7 +47,7 @@ difference(){
 	translate([0,0,ball_rad])
 	cube([3*ball_rad,3*ball_rad,ball_rad],
 		center=true);
-	slits(slits_n,2+ball_rad,ball_rad);
+	slits(socket_slits,2+ball_rad,ball_rad);
 	translate([0,0,-mount_length*bar_orad])
 	rotate(a=45,v=[1,0,0])
 	cube([2*bar_orad,5*bar_orad,1.414*bar_orad], center=true);
